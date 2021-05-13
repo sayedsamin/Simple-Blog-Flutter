@@ -3,17 +3,18 @@ import 'package:simple_blog/blogDetails.dart';
 import 'services.dart';
 import 'blogModel.dart';
 
-class ParseData extends StatefulWidget {
-  ParseData() : super();
+class BlogCollection extends StatefulWidget {
+  BlogCollection() : super();
 
   @override
-  _ParseDataState createState() => _ParseDataState();
+  _BlogCollectionState createState() => _BlogCollectionState();
 }
 
-class _ParseDataState extends State<ParseData> {
+class _BlogCollectionState extends State<BlogCollection> {
   List<Blogs> _blogs;
   bool _loading;
 
+  //Fetch the JSON data and attach the blogs
   @override
   void initState() {
     super.initState();
@@ -21,7 +22,6 @@ class _ParseDataState extends State<ParseData> {
     Services.getBlogs().then((blo) {
       setState(() {
         _blogs = blo.blogs;
-        print(_blogs.length);
         _loading = false;
       });
     });
